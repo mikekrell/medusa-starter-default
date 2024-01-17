@@ -43,6 +43,16 @@ const plugins = [
     },
   },
   {
+    resolve: `medusa-file-cloudinary-custom`,
+    options: {
+      cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+      api_key: "261717191161857",
+      api_secret: process.env.CLOUDINARY_API_SECRET,
+      secure: false,
+      root_folder: "KCS",
+    },
+  },
+  {
     resolve: "@medusajs/admin",
     /** @type {import('@medusajs/admin').PluginOptions} */
     options: {
@@ -55,6 +65,13 @@ const plugins = [
 ];
 
 const modules = {
+  inventoryService: {
+    resolve: "@medusajs/inventory",
+  },
+  stockLocationService: {
+    resolve: "@medusajs/stock-location",
+  },
+
   /*eventBus: {
     resolve: "@medusajs/event-bus-redis",
     options: {
